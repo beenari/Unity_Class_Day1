@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (other.gameObject.GetComponent<ItemController>().itemtype == ItemController.ITEMTYPE.HP_ITEM)
+            if (other.gameObject.GetComponent<ItemController>().itemtype == ItemController.ITEMTYPE.EXP_ITEM)
             {
                 currentExp += other.gameObject.GetComponent<ItemController>().amount;
             }

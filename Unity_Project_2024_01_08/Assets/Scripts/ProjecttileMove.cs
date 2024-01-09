@@ -33,6 +33,7 @@ public class ProjecttileMove : MonoBehaviour
             if(other.gameObject.GetComponent<EnemyController>().currentHp <= 0)
             {
                 Instantiate(VFX_WW_Explosion, point, Quaternion.identity); //적군이 파괴되는 이벤트 추가
+                other.gameObject.GetComponent<EnemyController>().DropItems();
                 Destroy(other.gameObject);
             }
         }

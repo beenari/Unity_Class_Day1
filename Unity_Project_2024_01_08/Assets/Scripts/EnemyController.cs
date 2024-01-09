@@ -15,8 +15,28 @@ public class EnemyController : MonoBehaviour
     private Transform player;
     private float nextFireTime;
 
-    public int maxHp = 3;
-    public int currentHp = 3;
+    public int maxHp;
+    public int currentHp;
+
+    public GameObject[] dropitems = new GameObject[2];
+
+    public void DropItems()
+    {
+        int RandNumber = Random.Range(0, 100);
+
+        if(RandNumber >= 0 && RandNumber < 50)
+        {
+            GameObject temp = (GameObject)Instantiate(dropitems[0], transform.position, Quaternion.identity);
+        }
+        else if(RandNumber >= 50 && RandNumber < 70)
+        {
+            GameObject temp = (GameObject)Instantiate(dropitems[1], transform.position, Quaternion.identity);
+        }
+        else
+        {
+            //이외 다른 행동 없음
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
