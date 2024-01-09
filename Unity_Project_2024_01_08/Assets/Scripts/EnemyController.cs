@@ -15,9 +15,15 @@ public class EnemyController : MonoBehaviour
     private Transform player;
     private float nextFireTime;
 
+    public int maxHp = 3;
+    public int currentHp = 3;
+
     // Start is called before the first frame update
     void Start()
     {
+        maxHp = 3;
+        currentHp = 3;
+
         body = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -43,7 +49,8 @@ public class EnemyController : MonoBehaviour
             if(Time.time > nextFireTime)
             {
                 nextFireTime = Time.time + 1f / fireRate;
-                Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
+                GameObject temp = Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
+                temp.GetComponent<ProjecttileMove>().projectileType = ProjecttileMove.PROFECTILETYPE.ENEMY;     //발사체에 적이 쏜 총알이라 이름붙임
             }
         }
     }

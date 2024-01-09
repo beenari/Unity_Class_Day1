@@ -11,9 +11,16 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;                        //이동 값
     public Rigidbody body;                          //물리효과
 
+    public int maxHp;
+    public int currentHp;
+    public int currentExp;
+
     // Start is called before the first frame update
     void Start()
     {
+        maxHp = 1000;
+        currentHp = 1000;
+
         viewCamera = Camera.main;                   //스트립트가 시작될떄 카메라를 받아온다
     }
 
@@ -36,5 +43,29 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         body.MovePosition(body.position + velocity * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("TRIGGER ENTER : " + other.gameObject.name);
+
+        if(other.gameObject.tag == "ITEM")
+        {
+            if(other.gameObject.GetComponent<ItemController>().itemtype == ItemController.ITEMTYPE.HP_ITEM)
+            {
+                currentHp += other.gameObject.GetComponent<ItemController>().amount;
+                if(currentHp > maxHp)
+                {
+                    currentHp = maxHp;
+                }
+            }
+
+            if (other.gameObject.GetComponent<ItemController>().itemtype == ItemController.ITEMTYPE.HP_ITEM)
+            {
+                currentExp += other.gameObject.GetComponent<ItemController>().amount;
+            }
+
+            Destroy(other.gameObject);
+        }
     }
 }
