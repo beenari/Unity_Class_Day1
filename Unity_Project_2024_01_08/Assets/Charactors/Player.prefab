@@ -54,6 +54,9 @@ MonoBehaviour:
   viewCamera: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   body: {fileID: 8947822264875962351}
+  maxHp: 0
+  currentHp: 0
+  currentExp: 0
 --- !u!114 &69074719714219518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +117,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &8650415741886191120
 GameObject:
