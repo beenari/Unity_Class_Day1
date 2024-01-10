@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   rotationSpeed: 1
-  projectile: {fileID: 2038359491960932638, guid: ca21d4e4e1ee45f44850c0d37a973eac, type: 3}
+  projectile: {fileID: 7366948923711197042, guid: f1ed1a8d0fc5bcd4db9c128d74862ae2, type: 3}
   Pivot: {fileID: 1160950885316538369}
   firePoint: {fileID: 4270541855140724061}
   fireRate: 1
