@@ -29,9 +29,9 @@ public class ProjecttileMove : MonoBehaviour
             Vector3 point = other.ClosestPoint(transform.position);                 //충돌이 일어난 포인트
             GameObject tempVFX = (GameObject)Instantiate(VFX_Fire_B, point, Quaternion.identity);       //충돌이 일어난 포인트에 이펙트 추가
 
-            other.gameObject.GetComponent<EnemyController>().currentHp -= damage;
+            other.gameObject.GetComponent<EnemyController>().currentHP -= damage;
 
-            if(other.gameObject.GetComponent<EnemyController>().currentHp <= 0)
+            if(other.gameObject.GetComponent<EnemyController>().currentHP <= 0)
             {
                 Instantiate(VFX_WW_Explosion, point, Quaternion.identity); //적군이 파괴되는 이벤트 추가
                 other.gameObject.GetComponent<EnemyController>().DropItems();
