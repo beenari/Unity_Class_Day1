@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class EnemyController : MonoBehaviour
 {
@@ -51,6 +52,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.gameStation != GAMESTATION.PLAY) return;
+
         if (player != null)
         {
             if (Vector3.Distance(player.position, transform.position) > 5.0f)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class ProjecttileMove : MonoBehaviour
 {
@@ -58,6 +59,8 @@ public class ProjecttileMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.gameStation != GAMESTATION.PLAY) return;
+
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
 
         lifeTime -= Time.deltaTime;

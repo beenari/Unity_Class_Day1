@@ -20,7 +20,7 @@ public class ItemController : MonoBehaviour
     public void Start()
     {
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOMoveY(0.01f, 1));
+        //sequence.Append(transform.DOMoveY(0.01f, 1));
 
         sequence.Join(transform.DORotate(new Vector3(0, 180, 0), 1));
         sequence.SetLoops(-1, LoopType.Yoyo);
