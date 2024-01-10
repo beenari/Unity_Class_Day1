@@ -33,6 +33,54 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    public void HpLevelUp()
+    {
+        maxHp += 10;
+        GameUIManager.instance.levelUpPanel_OnOff(false);
+        gameStation = GAMESTATION.PLAY;
+    }
+
+    public void moveSpeedLevelUp()
+    {
+        moveSpeed += 0.1f;
+        GameUIManager.instance.levelUpPanel_OnOff(false);
+        gameStation = GAMESTATION.PLAY;
+    }
+
+    public void fireSpeedLevelUp()
+    {
+        fireSpeed += 0.5f;
+        GameUIManager.instance.levelUpPanel_OnOff(false);
+        gameStation = GAMESTATION.PLAY;
+    }
+
+    public void PowerLevelUp()
+    {
+        playerPower += 1;
+        GameUIManager.instance.levelUpPanel_OnOff(false);
+        gameStation = GAMESTATION.PLAY;
+    }
+
+    public void Start()
+    {
+        GameUIManager.instance.levelUpPanel_OnOff(false);
+    }
+
+    public void GamePlay()
+    {
+        gameStation = GAMESTATION.PLAY;
+    }
+
+    public void GamePlayStop()
+    {
+        gameStation = GAMESTATION.STOP;
+    }
+
+    public void GamePlayLevelUp()
+    {
+        gameStation = GAMESTATION.LEVELUPUI;
+    }
+
     public void ExpUp(int amount)
     {
         if (level == levelUpExp.Length) return;
@@ -52,6 +100,8 @@ public class GameManager : MonoBehaviour
             {
                 level = levelUpExp.Length;
             }
+            GameUIManager.instance.levelUpPanel_OnOff(true);
+            gameStation = GAMESTATION.LEVELUPUI;
             
         }
     }

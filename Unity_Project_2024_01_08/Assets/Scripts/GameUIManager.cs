@@ -6,11 +6,20 @@ using UnityEngine.UI;
 
 public class GameUIManager : MonoBehaviour
 {
+    public static GameUIManager instance;
+
     public Slider silderUI_Player_Hp_Bar;
     public Slider silderUI_Player_Exp_Bar;
     public TMP_Text tmpTextUI_Player_Hp;
     public TMP_Text tmpTextUI_Player_Exp;
     public TMP_Text tmpTextUI_Player_Level;
+
+    public GameObject levelUpPanel;
+
+    public void Awake() 
+    {
+        instance = this; 
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +37,10 @@ public class GameUIManager : MonoBehaviour
         silderUI_Player_Hp_Bar.value = (float)GameManager.Instance.currentHp / (float)GameManager.Instance.maxHp;
         silderUI_Player_Exp_Bar.value = (float)GameManager.Instance.currentExp /
             (float)GameManager.Instance.levelUpExp[GameManager.Instance.level - 1];
+    }
+
+    public void levelUpPanel_OnOff(bool temp)
+    {
+        levelUpPanel.SetActive(temp);
     }
 }

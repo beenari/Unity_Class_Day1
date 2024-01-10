@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8044333254172789397}
   - component: {fileID: 6517419344590509890}
   - component: {fileID: 69074719714219518}
+  - component: {fileID: 3521421843285930798}
   - component: {fileID: 4434002415410943168}
   - component: {fileID: 8947822264875962351}
   m_Layer: 0
@@ -54,10 +55,21 @@ MonoBehaviour:
   viewCamera: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   body: {fileID: 8947822264875962351}
-  maxHp: 0
-  currentHp: 0
-  currentExp: 0
 --- !u!114 &69074719714219518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239129608454242199}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ff9d4c31a5708499fa9fca7ef64042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 7058911184360346837}
+  projectile: {fileID: 7366948923711197042, guid: f1ed1a8d0fc5bcd4db9c128d74862ae2, type: 3}
+--- !u!114 &3521421843285930798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,11 +78,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 239129608454242199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50ff9d4c31a5708499fa9fca7ef64042, type: 3}
+  m_Script: {fileID: 11500000, guid: 2be76119cbfc34346aa95940791495d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 7058911184360346837}
-  projectile: {fileID: 2038359491960932638, guid: ca21d4e4e1ee45f44850c0d37a973eac, type: 3}
+  projectile: {fileID: 7366948923711197042, guid: f1ed1a8d0fc5bcd4db9c128d74862ae2, type: 3}
+  fireRate: 3
 --- !u!65 &4434002415410943168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90,8 +103,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.45, y: 1.65, z: 1.42}
-  m_Center: {x: 0, y: 0.73, z: 0}
+  m_Size: {x: 2.45, y: 3.2, z: 1.42}
+  m_Center: {x: 0, y: 1.68, z: 0}
 --- !u!54 &8947822264875962351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -117,7 +130,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &8650415741886191120
 GameObject:

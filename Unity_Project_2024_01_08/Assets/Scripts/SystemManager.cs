@@ -1,9 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class SystemManager : MonoBehaviour
 {
+    public enum ROUNDTYPE : int
+    {
+        NORMAL,
+        BOSS
+    }
+
+    public ROUNDTYPE roundtype = ROUNDTYPE.NORMAL;
+
+    public int roundindex = 1;
     public float roundTime = 0.0f;
     public float roundEndTime = 30.0f;
 
@@ -13,14 +23,39 @@ public class SystemManager : MonoBehaviour
     public GameObject[] EnemyObjects;
     public Transform[] spawntransform;
 
+    public GameObject EnemyBossObjects;
+
     public GameObject player;
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.gameStation != GAMESTATION.PLAY) return;
+
         if (player != null)
         {
-            spawnTime += Time.deltaTime;
+            if(roundtype == ROUNDTYPE.NORMAL)
+            {
+                spawnTime += Time.deltaTime;
+                roundTime += Time.deltaTime;
+            }
+            //else if(roundtype == ROUNDTYPE.BOSS)
+            //{
+            //    if(EnemyBossCheck == null)
+            //    {
+            //        roundtype = ROUNDTYPE.NORMAL;
+            //    }
+            //}
+
+            //if(roundEndTime <= roundTime)
+            //{
+            //    int SpawntransformCount = spawntransform.Length;
+            //    int RandSpawntransformNumber = Random.Range(0, SpawntransformCount);
+
+            //    GameObject temp = (GameObject)Instantiate(
+            //        EnemyBossObjects[roundindex])
+            //}
+
             if (nextspawnTime <= spawnTime)
             {
                 spawnTime = 0.0f;
