@@ -30,6 +30,8 @@ public class AudioManager : MonoBehaviour
     const string MIXER_MUSIC = "MusicVolume";
     const string MIXER_SFX = "SFXVolume";
 
+    public GameObject AudioPanel;
+
     private void Awake()
     {
         if(instance == null)
@@ -86,5 +88,10 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.PlayOneShot(sound.clip);
         }
+    }
+
+    public void PanelOnOff(bool type)
+    {
+        AudioPanel.SetActive(type);
     }
 }
